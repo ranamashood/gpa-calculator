@@ -10,3 +10,10 @@ declare module "styled-components" {
     borderRadius: string;
   }
 }
+
+export interface CourseInfoInterface {
+  grade: string;
+  gpa: number;
+  minMarks: number;
+  maxMarks: number;
+}
