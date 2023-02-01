@@ -17,3 +17,8 @@ export interface CourseInfoInterface {
   minMarks: number;
   maxMarks: number;
 }
+
+export interface CourseInterface extends CourseInfoInterface {
+  id: string;
+  name: string;
+}

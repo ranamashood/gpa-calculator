@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 interface Props {
   title: string;
+  onClick: () => void;
 }
 
 const Button = (props: Props) => {
-  const { title } = props;
+  const { title, onClick } = props;
 
-  return <StyledButton>{title}</StyledButton>;
+  return <StyledButton onClick={onClick}>{title}</StyledButton>;
 };
 
 const StyledButton = styled.button`

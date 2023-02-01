@@ -1,4 +1,4 @@
-import { CourseInfoInterface } from "./models";
+import { CourseInfoInterface, CourseInterface } from "./models";
 
 const courseInfo: CourseInfoInterface[] = [
   { grade: "A", gpa: 4, minMarks: 85, maxMarks: 100 },
@@ -14,4 +14,13 @@ const courseInfo: CourseInfoInterface[] = [
   { grade: "F", gpa: 0, minMarks: 0, maxMarks: 49.99 },
 ];
 
-export default courseInfo;
+const sampleCourse: CourseInterface = {
+  id: "",
+  name: "",
+  grade: "A",
+  gpa: 4,
+  minMarks: 85,
+  maxMarks: 100,
+};
+
+export { courseInfo, sampleCourse };

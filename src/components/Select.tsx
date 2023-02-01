@@ -1,16 +1,17 @@
 import { ChangeEvent } from "react";
-import courseInfo from "../data";
-import { CourseInfoInterface } from "../models";
+import { courseInfo } from "../data";
+import { CourseInfoInterface, CourseInterface } from "../models";
 
 interface Props {
+  course: CourseInterface;
   options: CourseInfoInterface[];
   optionKey: "gpa" | "grade";
   value: string | number;
-  setCourse: React.Dispatch<React.SetStateAction<CourseInfoInterface>>;
+  setCourse: React.Dispatch<React.SetStateAction<CourseInterface>>;
 }
 
 const Select = (props: Props) => {
-  const { options, optionKey, value, setCourse } = props;
+  const { course, options, optionKey, value, setCourse } = props;
 
   const changeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
     const index = courseInfo.findIndex((course) =>
@@ -18,7 +19,11 @@ const Select = (props: Props) => {
         ? course.gpa === parseFloat(event.target.value)
         : course.grade === event.target.value
     );
-    setCourse(courseInfo[index]);
+    setCourse({
+      ...course,
+      grade: courseInfo[index].grade,
+      gpa: courseInfo[index].gpa,
+    });
   };
 
   return (
